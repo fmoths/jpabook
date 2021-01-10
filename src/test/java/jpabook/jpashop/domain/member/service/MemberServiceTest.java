@@ -13,6 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = JpaBookApplication.class)
@@ -37,5 +38,22 @@ public class MemberServiceTest {
 
         //then
         assertEquals(member, memberRepository.findById(saveId));
+    }
+
+    @Test
+    @DisplayName("중복회원이 저장되면 예외를 발생시킨다.")
+    public void saveMemberFail() throws Exception {
+        //Given
+        Member member1 = new Member();
+        member1.setName("kim");
+
+        Member member2 = new Member();
+        member2.setName("kim");
+
+        //when, then
+        assertThrows(IllegalStateException.class, () -> {
+            memberService.join(member1);
+            memberService.join(member2);
+        });
     }
 }
