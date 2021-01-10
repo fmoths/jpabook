@@ -1,2 +1,4 @@
-package jpabook.jpashop.common;public enum OrderStatus {
+package jpabook.jpashop.common;
+
+public enum OrderStatus {
 }
