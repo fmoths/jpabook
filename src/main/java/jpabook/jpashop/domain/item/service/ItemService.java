@@ -15,7 +15,7 @@ public class ItemService {
     @Autowired
     ItemRepository itemRepository;
 
-    public void saveItem(Item item) {
+    public void save(Item item) {
         itemRepository.save(item);
     }
 
