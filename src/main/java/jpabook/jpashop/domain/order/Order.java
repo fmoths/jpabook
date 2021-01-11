@@ -1,8 +1,11 @@
 package jpabook.jpashop.domain.order;
 
+import jpabook.jpashop.common.DeliveryStatus;
 import jpabook.jpashop.common.OrderStatus;
 import jpabook.jpashop.domain.delivery.Delivery;
 import jpabook.jpashop.domain.member.entity.Member;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "ORDERS")
 public class Order {
 
@@ -32,6 +37,45 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus staus; //주문 상태
+
+    /*
+     * 생성 메소드
+     */
+    public static Order createOrder(Member member, Delivery delivery, List<OrderItem> orderItems) {
+        Order order = new Order();
+        order.setMember(member);
+        order.setDelivery(delivery);
+        for (OrderItem orderItem : orderItems) {
+            order.addOrderItem(orderItem);
+        }
+        order.setStaus(OrderStatus.ORDER);
+        order.setOrderDate(LocalDate.now());
+        return order;
+    }
+
+    /*
+     * 비즈니스 로직
+     */
+    //주문 취소
+    public void cancel() {
+        if (delivery.getStatus() == DeliveryStatus.COMP) {
+            throw new RuntimeException("이미 배송완료된 상품은 취소가 불가능합니다.");
+        }
+
+        this.setStaus(OrderStatus.CANCEL);
+        for (OrderItem orderItem : orderItems) {
+            orderItem.cancel();
+        }
+    }
+
+    //조회 로직 - 전체주문 가격 조회
+    public int getTotalPrice() {
+        int totalPrice = 0;
+        for (OrderItem orderItem : orderItems) {
+            totalPrice += orderItem.getTotalPrice();
+        }
+        return totalPrice;
+    }
 
     public void addOrderItem(OrderItem orderItem) {
         orderItems.add(orderItem);
