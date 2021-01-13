@@ -41,13 +41,11 @@ public class Order {
     /*
      * 생성 메소드
      */
-    public static Order createOrder(Member member, Delivery delivery, List<OrderItem> orderItems) {
+    public static Order createOrder(Member member, Delivery delivery, OrderItem orderItem) {
         Order order = new Order();
         order.setMember(member);
         order.setDelivery(delivery);
-        for (OrderItem orderItem : orderItems) {
-            order.addOrderItem(orderItem);
-        }
+        order.addOrderItem(orderItem);
         order.setStaus(OrderStatus.ORDER);
         order.setOrderDate(LocalDate.now());
         return order;

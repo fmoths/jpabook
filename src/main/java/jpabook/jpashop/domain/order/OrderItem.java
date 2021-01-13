@@ -40,6 +40,16 @@ public class OrderItem {
         return orderItem;
     }
 
+    public static OrderItem createOrderItems(Item item, int OrderPrice, int count) throws NotEnoughStockException {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setOrderPrice(OrderPrice);
+        orderItem.setCount(count);
+
+        item.removeStock(count);
+        return orderItem;
+    }
+
     /*
      * 비즈니스 로직
      */

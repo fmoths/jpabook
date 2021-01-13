@@ -1,33 +1,65 @@
 package jpabook.jpashop.domain.order.service;
 
+import jpabook.jpashop.common.exception.NotEnoughStockException;
+import jpabook.jpashop.domain.delivery.Delivery;
+import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.domain.item.service.ItemService;
+import jpabook.jpashop.domain.member.entity.Member;
+import jpabook.jpashop.domain.member.service.MemberService;
 import jpabook.jpashop.domain.order.Order;
+import jpabook.jpashop.domain.order.OrderItem;
 import jpabook.jpashop.domain.order.dto.OrderSearchDto;
-import org.springframework.stereotype.Repository;
+import jpabook.jpashop.domain.order.repository.OrderRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Repository
+@Service
+@Transactional
 public class OrderService {
 
-    @PersistenceContext
-    EntityManager em;
+    @Autowired
+    MemberService memberService;
 
-    public void save(Order order) {
-        em.persist(order);
+    @Autowired
+    OrderRepository orderRepository;
+
+    @Autowired
+    ItemService itemService;
+
+    //주문
+    public Long Order(Long memberId, Long itemId, int count) throws NotEnoughStockException {
+
+        //엔티티 조회
+        Member member = memberService.findById(memberId);
+        Item item = itemService.findById(itemId);
+
+        //배송정보 생성
+        Delivery delivery = new Delivery(member.getAddress());
+
+        //주문 상품 생성
+        OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count);
+
+        //주문 생성
+        Order order = Order.createOrder(member, delivery, orderItem);
+
+        //주문 저장
+        orderRepository.save(order);
+        return order.getId();
     }
 
-    public Order findById(Long id) {
-        return em.find(Order.class, id);
+    //주문 취소
+    public void cancelOrder(Long orderId) {
+        //주문 엔티티 조회
+        Order order = orderRepository.findById(orderId);
+        //주문 취소
+        order.cancel();
     }
 
-    //TODO:: QueryDsl 사용해야 함.
-    public List<Order> findAll(OrderSearchDto dto) {
-        return em.createQuery("" +
-                "select o from Order o inner join o.member m where o.status = :status and m.name = :memberName", Order.class)
-                .setParameter("status", dto.getOrderStatus())
-                .setParameter("memberName", dto.getMember().getName())
-                .getResultList();
+    //주문 검색
+    public List<Order> findOrders(OrderSearchDto dto) {
+        return orderRepository.findAll(dto);
     }
 }
