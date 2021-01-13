@@ -24,9 +24,10 @@ public class OrderService {
 
     //TODO:: QueryDsl 사용해야 함.
     public List<Order> findAll(OrderSearchDto dto) {
-        em.createQuery("""
-                    select * from Order o where o.status = :status
-                """)
-                .setParameter("status", dto.getOrderStatus());
+        return em.createQuery("" +
+                "select o from Order o inner join o.member m where o.status = :status and m.name = :memberName", Order.class)
+                .setParameter("status", dto.getOrderStatus())
+                .setParameter("memberName", dto.getMember().getName())
+                .getResultList();
     }
 }
