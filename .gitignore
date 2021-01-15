@@ -1,1 +1,5 @@
-/src/test/java/jpabook/jpashop/domain/order/service/OrderServiceTest.java
+.idea
+.gradle
+.bin
+.lock
+.class
