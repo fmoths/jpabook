@@ -13,17 +13,17 @@ import java.util.List;
 
 //TODO::handlebar 사용하여 뷰 만들어야 함..
 @Slf4j
-@Controller("/items")
+@Controller
 public class ItemController {
 
     @Autowired
     private ItemService itemService;
 
-    @GetMapping
+    @GetMapping("/items")
     public String list(Model model){
         List<Item> items = itemService.findItems();
         model.addAttribute("items", items);
-        return "items/itemList";
+        return "itemList";
     }
 
     @PostMapping("/new")

@@ -4,6 +4,7 @@
     <title>상품 리스트</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
@@ -26,10 +27,22 @@
                 </tr>
                 </thead>
                 <tbody>
-
+                    {{#each items}}
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{name}}</td>
+                            <td>{{price}}</td>
+                            <td>{{stockQuantity}}</td>
+                            <td>
+                                <a href="/items/{{id}}/edit" class="btn btn-primary" role="button">수정</a>
+                            </td>
+                        </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>
     </div>
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
 </body>
 </html>
