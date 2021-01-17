@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>상품 수정</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <form class="row g-3" action="/items" method="post" name="item">
+        <input type="hidden" name="_method" value="patch" />
+        <input type="hidden" value="{{item.id}}" name="id" />
+
+        <div class="col-12">
+            <label for="name" class="form-label">상품명</label>
+            <input type="text" class="form-control" name="name" placeholder="{{item.name}}">
+        </div>
+        <div class="col-12">
+            <label for="price" class="form-label">가격</label>
+            <input type="number" class="form-control" name="price" placeholder="{{item.price}}">
+        </div>
+        <div class="col-md-6">
+            <label for="stockQuantity" class="form-label">수량</label>
+            <input type="number" class="form-control" placeholder="{{item.stockQuantity}}" name="stockQuantity">
+        </div>
+<!--        <div class="col-12">-->
+<!--            <div class="form-check">-->
+<!--                <input class="form-check-input" type="checkbox" id="gridCheck">-->
+<!--                <label class="form-check-label" for="gridCheck">-->
+<!--                    Check me out-->
+<!--                </label>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
+</body>
+</html>
