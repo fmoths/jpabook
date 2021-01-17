@@ -4,6 +4,7 @@ import jpabook.jpashop.common.Address;
 import jpabook.jpashop.common.DeliveryStatus;
 import jpabook.jpashop.domain.order.Order;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Delivery {
     @Id
     @GeneratedValue
