@@ -10,10 +10,11 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@Table(name = "orderItems")
 public class OrderItem {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

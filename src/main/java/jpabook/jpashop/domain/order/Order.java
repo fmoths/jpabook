@@ -15,11 +15,11 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table(name = "ORDERS")
+@Table(name = "orders")
 public class Order {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
