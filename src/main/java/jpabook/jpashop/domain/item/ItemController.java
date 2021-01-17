@@ -36,7 +36,6 @@ public class ItemController {
     //상품 수정
     @PatchMapping("/items")
     public String updateItem(@ModelAttribute("item") Book item){
-        log.info("{} - {} - {}",item.getName(), item.getPrice(), item.getStockQuantity());
         itemService.save(item);
         return "redirect:/items";
     }
