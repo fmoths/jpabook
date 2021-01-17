@@ -6,8 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +23,21 @@ public class ItemController {
         List<Item> items = itemService.findItems();
         model.addAttribute("items", items);
         return "itemList";
+    }
+
+    //상품 수정 폼
+    @GetMapping("/items/{itemId}/edit")
+    public String updateItemForm(@PathVariable("itemId") Long itemId, Model model) {
+        Item item = itemService.findById(itemId);
+        model.addAttribute("item", item);
+        return "items/updateItemForm";
+    }
+
+    //상품 수정
+    @PatchMapping
+    public String updateItem(@ModelAttribute("item") Item item){
+        itemService.save(item);
+        return "redirect:/items";
     }
 
     @PostMapping("/new")
