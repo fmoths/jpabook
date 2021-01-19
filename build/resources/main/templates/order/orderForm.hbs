@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>상품 주문</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+</head>
+<body>
+<div class="input-group mb-3">
+    <form class="row g-3" action="/order" method="post" name="item">
+        <div class="col-12">
+
+            <label for="inputState" class="form-label">State</label>
+            <select id="inputState" class="form-select">
+                <option selected>Choose...</option>
+                <option>...</option>
+            </select>
+
+            <label for="memberId" class="form-label">주문회원</label>
+            <select id="memberId" class="form-select">
+                <option selected>Open this select menu</option>
+                {{#each members}}
+                    <option value="{{id}}" name="memberId">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="itemId" class="form-label">상품명</label>
+            <select id="itemId" class="form-select">
+                <option selected>Open this select menu</option>
+                {{#each items}}
+                    <option value="{{id}}" name="itemId">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="count" class="form-label">수량</label>
+            <input type="number" class="form-control" placeholder="주문 수량을 입력하세요." name="count">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
+</body>
+</html>
