@@ -36,7 +36,7 @@ public class Order {
     private LocalDate orderDate; //주문 시간
 
     @Enumerated(EnumType.STRING)
-    private OrderStatus staus; //주문 상태
+    private OrderStatus status; //주문 상태
 
     /*
      * 생성 메소드
@@ -46,7 +46,7 @@ public class Order {
         order.setMember(member);
         order.setDelivery(delivery);
         order.addOrderItem(orderItem);
-        order.setStaus(OrderStatus.ORDER);
+        order.setStatus(OrderStatus.ORDER);
         order.setOrderDate(LocalDate.now());
         return order;
     }
@@ -60,7 +60,7 @@ public class Order {
             throw new RuntimeException("이미 배송완료된 상품은 취소가 불가능합니다.");
         }
 
-        this.setStaus(OrderStatus.CANCEL);
+        this.setStatus(OrderStatus.CANCEL);
         for (OrderItem orderItem : orderItems) {
             orderItem.cancel();
         }

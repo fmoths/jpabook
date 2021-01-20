@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>주문 리스트</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+</head>
+<body>
+<h2>주문 리스트 페이지</h2>
+<form class="row g-3 needs-validation" novalidate>
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">회원명</label>
+        <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">주문 상태</label>
+        <select class="form-select" id="validationCustom04" required>
+            <option selected disabled value="">Choose...</option>
+            <option>주문</option>
+            <option>취소</option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+    </div>
+</form>
+<div class="container">
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>회원명</th>
+                <th>대표상품이름</th>
+                <th>주문가격</th>
+                <th>주문수량</th>
+                <th>상태</th>
+                <th>일시</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each orderItems}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{member.name}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{price}}</td>
+                    <td>{{count}}</td>
+                    <td>{{status}}</td>
+                    <td>{{orderDate}}</td>
+                    <td>
+                        <a href="/items/{{id}}/edit" class="btn btn-primary" role="button">수정</a>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
+<script src="/js/lib/bootstrap.bundle.js"></script>
+<script src="/js/orderListAjax.js"></script>
+</body>
+</html>
