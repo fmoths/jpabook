@@ -44,14 +44,14 @@ class OrderServiceTest {
         Item item = createBook("JPA test", 10000, 10);
         int orderCount = 2;
         //when
-        Long orderId = orderService.order(member.getId(), item.getId(), orderCount);
+        Order expected = orderService.order(member.getId(), item.getId(), orderCount);
 
         //then
-        Order order = orderRepository.findById(orderId);
+        Order actual = orderRepository.findById(expected.getId());
 
-        assertEquals("상품 주문시 상태는 ORDER", OrderStatus.ORDER, order.getStaus());
-        assertEquals("주문한 상품 종류 수가 정확해야 한다.", 1, order.getOrderItems().size());
-        assertEquals("주문 가격은 가격 * 수량이다.", 10000 * 2, order.getTotalPrice());
+        assertEquals("상품 주문시 상태는 ORDER", OrderStatus.ORDER, actual.getStatus());
+        assertEquals("주문한 상품 종류 수가 정확해야 한다.", 1, actual.getOrderItems().size());
+        assertEquals("주문 가격은 가격 * 수량이다.", 10000 * 2, actual.getTotalPrice());
         assertEquals("주문 수량만큼 재고가 줄어야한다.", 8, item.getStockQuantity());
     }
 
@@ -75,15 +75,15 @@ class OrderServiceTest {
         Item item = createBook("JPA test", 10000, 10); //이름, 가격, 재고
         int orderCount = 2;
 
-        Long orderId = orderService.order(member.getId(), item.getId(), orderCount);
+        Order expected = orderService.order(member.getId(), item.getId(), orderCount);
 
         //when
-        orderService.cancelOrder(orderId);
+        orderService.cancelOrder(expected.getId());
 
         //then
-        Order order = orderRepository.findById(orderId);
+        Order order = orderRepository.findById(expected.getId());
 
-        assertEquals("주문 취소시 상태는 CANCEL이다.", OrderStatus.CANCEL, order.getStaus());
+        assertEquals("주문 취소시 상태는 CANCEL이다.", OrderStatus.CANCEL, expected.getStatus());
         assertEquals("주문이 취소 된 상품은 그만큼 재고가 증가해야 한다.", 10, item.getStockQuantity());
     }
 

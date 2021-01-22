@@ -7,28 +7,31 @@
     <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
 </head>
 <body>
-<h2>주문 리스트 페이지</h2>
-<form class="row g-3 needs-validation" novalidate>
-    <div class="col-md-4">
-        <label for="validationCustom01" class="form-label">회원명</label>
-        <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-        <div class="valid-feedback">
-            Looks good!
-        </div>
-    </div>
-    <div class="col-md-3">
-        <label for="validationCustom04" class="form-label">주문 상태</label>
-        <select class="form-select" id="validationCustom04" required>
-            <option selected disabled value="">Choose...</option>
-            <option>주문</option>
-            <option>취소</option>
-        </select>
-        <div class="invalid-feedback">
-            Please select a valid state.
-        </div>
-    </div>
-</form>
 <div class="container">
+    <h2>주문 리스트 페이지</h2>
+    <form class="row g-3 needs-validation" novalidate>
+        <div class="col-md-4">
+            <label for="validationCustom01" class="form-label">회원명</label>
+            <input type="text" class="form-control" id="validationCustom01" placeholder="Mark" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="validationCustom04" class="form-label">주문 상태</label>
+            <select class="form-select" id="validationCustom04" required>
+                <option selected disabled>Choose...</option>
+                <option>주문</option>
+                <option>취소</option>
+            </select>
+            <div class="invalid-feedback">
+                Please select a valid state.
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button type="button" id="search" class="mt-4 btn btn-outline-secondary">검색</button>
+        </div>
+    </form>
     <div>
         <table class="table table-striped">
             <thead>

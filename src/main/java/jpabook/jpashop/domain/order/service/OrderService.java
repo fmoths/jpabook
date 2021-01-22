@@ -30,7 +30,7 @@ public class OrderService {
     ItemService itemService;
 
     //주문
-    public Long order(Long memberId, Long itemId, int count) throws NotEnoughStockException {
+    public Order order(Long memberId, Long itemId, int count) throws NotEnoughStockException {
 
         //엔티티 조회
         Member member = memberService.findById(memberId);
@@ -47,7 +47,7 @@ public class OrderService {
 
         //주문 저장
         orderRepository.save(order);
-        return order.getId();
+        return order;
     }
 
     //주문 취소

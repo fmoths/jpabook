@@ -1,24 +1,27 @@
 $("#search").on("click", function () {
 
     // 화면으로부터 입력 받은 변수값의 처리
-    var member = $("#button-addon2");
-    var status = $(".dropdown-item");
+    var member = $("#validationCustom01");
+    var status = $("#validationCustom04");
 
     var memberVal = member.val();
     var statusVal = status.val();
+
+    console.log(memberVal);
+    console.log(statusVal);
 
     // AJAX통신 : GET
     $.ajax({
         type : "get",
         url : "/orders",
         headers : {
-            "Content-type" : "application/json"
+            "Content-type" : "application/json charset=utf-8"
         },
         dataType : "text",
-        data : JSON.stringify({
+        data : {
                     memberName : memberVal,
                     orderStatus : statusVal
-                }),
+               },
         success : function (result) {
             console.log("result : " + result);
             if (result == "success") {
@@ -28,6 +31,22 @@ $("#search").on("click", function () {
         }
     });
 });
+
+var source = $("#template").html();
+var templateMissions = Handlebars.compile(source);
+
+function printData(datas){
+    for (var i = 0; i < datas.length; i++) {
+        var data = datas[i];
+        var dataStamp = {
+            name: data.name,
+            description: data.description,
+            img: data.imageUrl
+        }
+        var template = template(dataStamp)
+        $('.append-here').append(template);
+    }
+}
 
 //// 1000번째 게시글
 //var articleNo = 1000;
@@ -59,24 +78,3 @@ $("#search").on("click", function () {
 //    });
 //
 //}
-
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
