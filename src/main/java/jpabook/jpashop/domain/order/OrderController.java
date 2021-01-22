@@ -52,7 +52,7 @@ public class OrderController {
     }
 
     //TODO:: commonResponse 생성해야 함.
-    @GetMapping("/orders")
+    @PostMapping("/orders")
     @ResponseBody
     public ResponseEntity<List<Order>> getOrders(@RequestParam("memberName") String memberName,
                             @RequestParam("orderStatus") String orderStatus) {
