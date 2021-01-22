@@ -38,7 +38,7 @@ class OrderServiceTest {
 
     @Test
     @DisplayName("상품주문을 한 후에는 정상적인 상태로 주문이 되어야 한다.")
-    public void orderItem() throws NotEnoughStockException {
+    public void orderItem() throws Exception {
         //given
         Member member = createMember();
         Item item = createBook("JPA test", 10000, 10);
@@ -69,7 +69,7 @@ class OrderServiceTest {
 
     @Test
     @DisplayName("주문을 취소 한다면 주문이 정상적인 상태로 취소되어야 한다.")
-    public void orderCancel() throws NotEnoughStockException {
+    public void orderCancel() throws Exception {
         //given
         Member member = createMember();
         Item item = createBook("JPA test", 10000, 10); //이름, 가격, 재고

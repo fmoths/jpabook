@@ -65,7 +65,7 @@ public class OrderController {
     public String order(@RequestParam("memberId") Long memberId,
                         @RequestParam("itemId") Long itemId,
                         @RequestParam("count") int count,
-                        Model model) throws NotEnoughStockException {
+                        Model model) throws Exception {
         model.addAttribute("orders",
                 orderService.order(memberId, itemId, count));
         return "redirect:/order/list";

@@ -22,12 +22,8 @@ $("#search").on("click", function () {
                     memberName : memberVal,
                     orderStatus : statusVal
                },
-        success : function (result) {
-            console.log("result : " + result);
-            if (result == "success") {
-                alert("주문 내역 검색 완료!");
-                getAllList(); // 댓글 목록 갱신
-            }
+        success : function (data) {
+            printData(data);
         }
     });
 });

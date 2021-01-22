@@ -1,7 +1,7 @@
 package jpabook.jpashop.domain.item.service;
 
 import jpabook.jpashop.domain.item.Item;
-import jpabook.jpashop.domain.item.repository.ItemRepository;
+import jpabook.jpashop.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,10 +24,7 @@ public class ItemService {
     }
 
     public Item findById(Long id) {
-        return itemRepository.findById(id);
-    }
-
-    public List<Item> findByIds(List<Long> itemIds) {
-        return itemRepository.findByIds(itemIds);
+        return itemRepository.findById(id)
+                .orElseThrow();
     }
 }

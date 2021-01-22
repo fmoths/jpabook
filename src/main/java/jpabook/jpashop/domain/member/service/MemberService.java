@@ -1,7 +1,7 @@
 package jpabook.jpashop.domain.member.service;
 
 import jpabook.jpashop.domain.member.entity.Member;
-import jpabook.jpashop.domain.member.repository.MemberRepository;
+import jpabook.jpashop.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,8 +33,9 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
-    public Member findById(Long id) {
-        return memberRepository.findById(id);
+    public Member findById(Long id) throws Exception {
+        return memberRepository.findById(id)
+                .orElseThrow(() -> new Exception("[MemberService.findById] 엔티티가 없습니다."));
     }
 
     public List<Member> findByName(String memberName){

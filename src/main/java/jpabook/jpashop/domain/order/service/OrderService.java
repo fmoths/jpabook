@@ -1,6 +1,5 @@
 package jpabook.jpashop.domain.order.service;
 
-import jpabook.jpashop.common.exception.NotEnoughStockException;
 import jpabook.jpashop.domain.delivery.Delivery;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.domain.item.service.ItemService;
@@ -30,7 +29,7 @@ public class OrderService {
     ItemService itemService;
 
     //주문
-    public Order order(Long memberId, Long itemId, int count) throws NotEnoughStockException {
+    public Order order(Long memberId, Long itemId, int count) throws Exception {
 
         //엔티티 조회
         Member member = memberService.findById(memberId);
