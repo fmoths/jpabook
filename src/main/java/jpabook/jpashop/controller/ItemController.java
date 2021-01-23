@@ -1,6 +1,8 @@
 package jpabook.jpashop.controller;
 
 
+import jpabook.jpashop.domain.item.ItemFactory;
+import jpabook.jpashop.domain.item.dto.ItemRequestDto;
 import jpabook.jpashop.domain.item.entity.Book;
 import jpabook.jpashop.domain.item.entity.Item;
 import jpabook.jpashop.domain.item.service.ItemService;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 //TODO::handlebar 사용하여 뷰 만들어야 함..
+//TODO::request 받는 부분 전부 DTO로 변환해야 함.
 @Slf4j
 @Controller
 public class ItemController {
@@ -36,15 +39,23 @@ public class ItemController {
     }
 
     //상품 수정
-    @PatchMapping("/items")
-    public String updateItem(@ModelAttribute("item") Book item){
-        itemService.save(item);
+    //TODO:: 상품 업데이트 기능 엔티티에 추가해야 함.
+    //TODO:: pagination 기능 추가 및 인덱스 추가.
+    @PatchMapping("/items/{itemId}")
+    public String updateItem(
+            @PathVariable("itemId") Long itemId,
+            @ModelAttribute ItemRequestDto.BookRequest request
+    ){
+
+        Item book = itemService.findById(itemId);
+        itemService.save(book);
         return "redirect:/items";
     }
 
     @PostMapping("/new")
-    public String createItem(Item item) {
-        itemService.save(item);
+    public String createItem(@ModelAttribute ItemRequestDto.BookRequest request) {
+        Book book = ItemFactory.of(request);
+        itemService.save(book);
         return "redirect:/items";
     }
 

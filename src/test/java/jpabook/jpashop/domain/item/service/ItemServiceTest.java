@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,13 +24,19 @@ class ItemServiceTest {
     @Autowired
     ItemService itemService;
 
-    @Autowired
+    @MockBean
     ItemRepository itemRepository;
 
     @Test
     @DisplayName("호출하면 해당상품이 등록된다.")
     public void saveItem() {
-        Book book = new Book();
+        Book book = Book.builder()
+                .name("kdpark")
+                .price(12345)
+                .stockQuantity(12345)
+                .author("kdpark")
+                .isbn("1234")
+                .build();
 
         itemService.save(book);
 
@@ -40,16 +47,28 @@ class ItemServiceTest {
     @Test
     @DisplayName("재고 보다 많은 수량을 주문하면 예외를 발생시킨다.")
     public void orderItemMoreThenStock() {
-        Book book = new Book();
-        book.setStockQuantity(10);
+        Book book = Book.builder()
+                .name("kdpark")
+                .price(12345)
+                .stockQuantity(1)
+                .author("kdpark")
+                .isbn("1234")
+                .build();
+
         assertThrows(NotEnoughStockException.class, () -> book.removeStock(100));
     }
 
     @Test
     @DisplayName("일정 수량을 환불하면 환불된 수량만큼 재고가 증가한다.")
     public void refundStock() {
-        Book book = new Book();
-        book.setStockQuantity(10);
+        Book book = Book.builder()
+                .name("kdpark")
+                .price(12345)
+                .stockQuantity(10)
+                .author("kdpark")
+                .isbn("1234")
+                .build();
+
         book.addStock(10);
         assertEquals(20, book.getStockQuantity());
     }

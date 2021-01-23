@@ -1,32 +1,44 @@
-$("#search").on("click", function () {
+var main = {
+    init : function () {
+        var _this = this;
+        $('#search').on('click', function () {
+            _this.save();
+        });
+    },
+    save : function () {
+        // 화면으로부터 입력 받은 변수값의 처리
+        var member = $("#validationCustom01");
+        var status = $("#validationCustom04");
 
-    // 화면으로부터 입력 받은 변수값의 처리
-    var member = $("#validationCustom01");
-    var status = $("#validationCustom04");
+        var memberVal = member.val();
+        var statusVal = status.val();
 
-    var memberVal = member.val();
-    var statusVal = status.val();
+        var data = {
+            memberName: memberVal,
+            orderStatus: statusVal
+        };
 
-    console.log(memberVal);
-    console.log(statusVal);
+        // AJAX통신 : POST
+        $.ajax({
+            type : "post",
+            url : "/orders",
+            headers : {
+                "Content-type" : "application/json charset=utf-8"
+            },
+            dataType : "text",
+            data : JSON.stringify(data),
+            success : function (data) {
+                printData(data);
+            }
+        }).done(function() {
+            location.reload();
+        }).fail(function (error) {
+            alert(error);
+        });
+    }
+};
 
-    // AJAX통신 : POST
-    $.ajax({
-        type : "post",
-        url : "/orders",
-        headers : {
-            "Content-type" : "application/json charset=utf-8"
-        },
-        dataType : "text",
-        data : {
-                    memberName : memberVal,
-                    orderStatus : statusVal
-               },
-        success : function (data) {
-            printData(data);
-        }
-    });
-});
+main.init();
 
 //var source = $("#template").html();
 //var templateMissions = Handlebars.compile(source);
