@@ -1,4 +1,4 @@
-package jpabook.jpashop.domain.order;
+package jpabook.jpashop.domain.order.entity;
 
 import jpabook.jpashop.common.DeliveryStatus;
 import jpabook.jpashop.common.OrderStatus;

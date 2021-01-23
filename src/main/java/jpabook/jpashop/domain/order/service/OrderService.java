@@ -1,12 +1,12 @@
 package jpabook.jpashop.domain.order.service;
 
 import jpabook.jpashop.domain.delivery.Delivery;
-import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.domain.item.entity.Item;
 import jpabook.jpashop.domain.item.service.ItemService;
 import jpabook.jpashop.domain.member.entity.Member;
 import jpabook.jpashop.domain.member.service.MemberService;
-import jpabook.jpashop.domain.order.Order;
-import jpabook.jpashop.domain.order.OrderItem;
+import jpabook.jpashop.domain.order.entity.Order;
+import jpabook.jpashop.domain.order.entity.OrderItem;
 import jpabook.jpashop.domain.order.dto.OrderSearchDto;
 import jpabook.jpashop.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;

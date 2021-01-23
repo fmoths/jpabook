@@ -1,7 +1,7 @@
 package jpabook.jpashop.repository;
 
 import jpabook.jpashop.domain.member.entity.Member;
-import jpabook.jpashop.domain.order.Order;
+import jpabook.jpashop.domain.order.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

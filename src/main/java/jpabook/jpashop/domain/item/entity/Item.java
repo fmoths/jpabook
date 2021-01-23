@@ -1,4 +1,4 @@
-package jpabook.jpashop.domain.item;
+package jpabook.jpashop.domain.item.entity;
 
 import jpabook.jpashop.common.exception.NotEnoughStockException;
 import jpabook.jpashop.domain.category.Category;
