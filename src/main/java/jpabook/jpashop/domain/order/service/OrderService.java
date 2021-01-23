@@ -8,13 +8,14 @@ import jpabook.jpashop.domain.member.service.MemberService;
 import jpabook.jpashop.domain.order.Order;
 import jpabook.jpashop.domain.order.OrderItem;
 import jpabook.jpashop.domain.order.dto.OrderSearchDto;
-import jpabook.jpashop.domain.order.repository.OrderRepository;
+import jpabook.jpashop.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+//TODO:: 멤버 명세로 검색 기능 구현.
 @Service
 @Transactional
 public class OrderService {
@@ -52,13 +53,14 @@ public class OrderService {
     //주문 취소
     public void cancelOrder(Long orderId) {
         //주문 엔티티 조회
-        Order order = orderRepository.findById(orderId);
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow();
         //주문 취소
         order.cancel();
     }
 
     //주문 검색
     public List<Order> findOrders(OrderSearchDto dto) {
-        return orderRepository.findAll(dto);
+        return orderRepository.findByOrderStatusAndMembers(dto.getOrderStatus().name(), dto.getMembers());
     }
 }

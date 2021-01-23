@@ -10,9 +10,9 @@ $("#search").on("click", function () {
     console.log(memberVal);
     console.log(statusVal);
 
-    // AJAX통신 : GET
+    // AJAX통신 : POST
     $.ajax({
-        type : "get",
+        type : "post",
         url : "/orders",
         headers : {
             "Content-type" : "application/json charset=utf-8"
@@ -28,21 +28,21 @@ $("#search").on("click", function () {
     });
 });
 
-var source = $("#template").html();
-var templateMissions = Handlebars.compile(source);
-
-function printData(datas){
-    for (var i = 0; i < datas.length; i++) {
-        var data = datas[i];
-        var dataStamp = {
-            name: data.name,
-            description: data.description,
-            img: data.imageUrl
-        }
-        var template = template(dataStamp)
-        $('.append-here').append(template);
-    }
-}
+//var source = $("#template").html();
+//var templateMissions = Handlebars.compile(source);
+//
+//function printData(datas){
+//    for (var i = 0; i < datas.length; i++) {
+//        var data = datas[i];
+//        var dataStamp = {
+//            name: data.name,
+//            description: data.description,
+//            img: data.imageUrl
+//        }
+//        var template = template(dataStamp)
+//        $('.append-here').append(template);
+//    }
+//}
 
 //// 1000번째 게시글
 //var articleNo = 1000;

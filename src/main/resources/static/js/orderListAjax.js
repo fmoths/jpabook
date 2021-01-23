@@ -10,7 +10,7 @@ $("#search").on("click", function () {
     console.log(memberVal);
     console.log(statusVal);
 
-    // AJAX통신 : GET
+    // AJAX통신 : POST
     $.ajax({
         type : "post",
         url : "/orders",
