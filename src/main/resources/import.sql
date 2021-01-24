@@ -1,2 +1,2 @@
-INSERT INTO items (name, price, stock_quantity, author, isbn, dtype) VALUES ('book', 10000, 10, 'kdpark', 10910, 'B'), ('movie', 15000, 5, 'kdpark', 10101, 'B');
+INSERT INTO items (name, price, stock_quantity) VALUES ('book', 10000, 10), ('movie', 15000, 5);
 INSERT INTO members (name, city, street, zipcode) VALUES ('kdpark', 'seoul', 'Hanam-dea-ro', '123-123'), ('kdpark2', 'anyang', 'gang-nam-dea-ro', '124-124');

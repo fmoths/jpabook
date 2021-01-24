@@ -4,10 +4,12 @@ import jpabook.JpaBookApplication;
 import jpabook.jpashop.common.Address;
 import jpabook.jpashop.common.OrderStatus;
 import jpabook.jpashop.common.exception.NotEnoughStockException;
-import jpabook.jpashop.domain.item.entity.Book;
 import jpabook.jpashop.domain.item.entity.Item;
+import jpabook.jpashop.domain.item.service.ItemService;
 import jpabook.jpashop.domain.member.entity.Member;
 import jpabook.jpashop.domain.order.entity.Order;
+import jpabook.jpashop.repository.ItemRepository;
+import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,20 +30,24 @@ import static org.springframework.test.util.AssertionErrors.assertEquals;
 @Transactional
 class OrderServiceTest {
 
-    @PersistenceContext
-    EntityManager em;
-
     @Autowired
     OrderService orderService;
     @Autowired
+    ItemService itemService;
+    @Autowired
     OrderRepository orderRepository;
+    @Autowired
+    MemberRepository memberRepository;
+    @Autowired
+    ItemRepository itemRepository;
 
     @Test
     @DisplayName("상품주문을 한 후에는 정상적인 상태로 주문이 되어야 한다.")
     public void orderItem() throws Exception {
         //given
         Member member = createMember();
-        Item item = createBook("JPA test", 10000, 10);
+        Item item = createItem("JPA test", 10000, 10);
+
         int orderCount = 2;
         //when
         Order expected = orderService.order(member.getId(), item.getId(), orderCount);
@@ -61,7 +67,7 @@ class OrderServiceTest {
     public void orderStockQuantity() throws NotEnoughStockException {
         //given, when
         Member member = createMember();
-        Item item = createBook("JPA test", 10000, 10);
+        Item item = createItem("JPA test", 10000, 10);
         int orderCount = 11;
 
         //then
@@ -73,7 +79,7 @@ class OrderServiceTest {
     public void orderCancel() throws Exception {
         //given
         Member member = createMember();
-        Item item = createBook("JPA test", 10000, 10); //이름, 가격, 재고
+        Item item = createItem("JPA test", 10000, 10); //이름, 가격, 재고
         int orderCount = 2;
 
         Order expected = orderService.order(member.getId(), item.getId(), orderCount);
@@ -93,21 +99,20 @@ class OrderServiceTest {
         Member member = new Member();
         member.setName("회원1");
         member.setAddress(new Address("Seoul", "Hanam Dea Ro", "123-123"));
-        em.persist(member);
+        memberRepository.save(member);
 
         return member;
     }
 
-    private Book createBook(String name, int price, int stockQuantity) {
-        Book book = Book.builder()
+    private Item createItem(String name, int price, int stockQuantity) {
+        Item item = Item.builder()
                 .name(name)
                 .price(price)
                 .stockQuantity(stockQuantity)
                 .build();
 
-        book.addStock(stockQuantity);
-        em.persist(book);
+        itemRepository.save(item);
 
-        return book;
+        return item;
     }
 }

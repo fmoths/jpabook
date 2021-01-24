@@ -2,8 +2,12 @@ package jpabook.jpashop.domain.item.entity;
 
 import jpabook.jpashop.common.exception.NotEnoughStockException;
 import jpabook.jpashop.domain.category.Category;
+import jpabook.jpashop.domain.item.dto.ItemDto;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,20 +15,28 @@ import java.util.List;
 
 @Entity
 @Getter
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn
+@NoArgsConstructor
+@Slf4j
 @Table(name = "items")
-public abstract class Item {
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
-    protected String name;
-    protected int price;
-    protected int stockQuantity;
+    private Long id;
+
+    private String name;
+    private int price;
+    private int stockQuantity;
 
     @ManyToMany(mappedBy = "items")
-    private List<Category> cateegories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
+
+    @Builder
+    public Item (String name, int price, int stockQuantity){
+        this.name = name;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+    }
 
     /*
      * 비즈니스 로직
@@ -39,5 +51,10 @@ public abstract class Item {
             throw new NotEnoughStockException("need more stock");
         }
         this.stockQuantity = restStock;
+    }
+
+    public void update(ItemDto.ItemUpdateRequest request){
+        this.price = request.getPrice();
+        this.stockQuantity = request.getStockQuantity();
     }
 }

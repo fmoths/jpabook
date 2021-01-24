@@ -1,16 +1,15 @@
 package jpabook.jpashop.domain.item;
 
-import jpabook.jpashop.domain.item.dto.ItemRequestDto;
-import jpabook.jpashop.domain.item.entity.Book;
+import jpabook.jpashop.domain.item.dto.ItemDto;
+import jpabook.jpashop.domain.item.entity.Item;
 
 public class ItemFactory {
-    public static Book of(ItemRequestDto.BookRequest request){
-        return Book.builder()
+
+    public static Item of(ItemDto.ItemCreateRequest request){
+        return Item.builder()
                 .name(request.getName())
-                .author(request.getAuthor())
                 .stockQuantity(request.getStockQuantity())
                 .price(request.getPrice())
-                .isbn(request.getIsbn())
                 .build();
     }
 }

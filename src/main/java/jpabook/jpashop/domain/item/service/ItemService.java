@@ -1,5 +1,6 @@
 package jpabook.jpashop.domain.item.service;
 
+import jpabook.jpashop.domain.item.dto.ItemDto;
 import jpabook.jpashop.domain.item.entity.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,17 @@ public class ItemService {
     @Autowired
     ItemRepository itemRepository;
 
-    public void save(Item item) {
-        itemRepository.save(item);
+    public Item save(Item item) {
+        return itemRepository.save(item);
     }
 
     public List<Item> findItems() {
         return itemRepository.findAll();
+    }
+
+    public void update(Item item, ItemDto.ItemUpdateRequest request){
+        item.update(request);
+        save(item);
     }
 
     public Item findById(Long id) {
