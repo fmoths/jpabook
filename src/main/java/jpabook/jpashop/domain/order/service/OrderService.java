@@ -53,14 +53,13 @@ public class OrderService {
     //주문 취소
     public void cancelOrder(Long orderId) {
         //주문 엔티티 조회
-        Order order = orderRepository.findById(orderId)
-                .orElseThrow();
+        Order order = orderRepository.findById(orderId).orElseThrow();
         //주문 취소
         order.cancel();
     }
 
     //주문 검색
     public List<Order> findOrders(OrderSearchDto dto) {
-        return orderRepository.findByOrderStatusAndMembers(dto.getOrderStatus().name(), dto.getMembers());
+        return orderRepository.findByOrderStatusAndMembers(dto.getOrderStatus(), dto.getMemberName());
     }
 }

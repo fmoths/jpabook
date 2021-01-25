@@ -9,7 +9,7 @@
 <body>
 <h2>상품 수정 페이지</h2>
 <div class="container">
-    <form class="row g-3" content="application/json" action="/items/{{item.id}}" method="post">
+    <form class="row g-3" action="/items/{{item.id}}" method="post">
         <input type="hidden" name="_method" value="patch" />
         <div class="col-12">
             <label for="name" class="form-label">상품명</label>

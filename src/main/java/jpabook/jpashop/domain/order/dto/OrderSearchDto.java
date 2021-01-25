@@ -13,5 +13,5 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderSearchDto {
     OrderStatus orderStatus;
-    List<Member> members;
+    String memberName;
 }

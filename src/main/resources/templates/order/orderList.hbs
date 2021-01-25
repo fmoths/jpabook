@@ -9,10 +9,10 @@
 <body>
 <div class="container">
     <h2>주문 리스트 페이지</h2>
-    <form class="row g-3 needs-validation" novalidate>
+<!--    <form class="row g-3 needs-validation" novalidate>-->
         <div class="col-md-4">
             <label for="validationCustom01" class="form-label">회원명</label>
-            <input type="text" class="form-control" id="validationCustom01" placeholder="test" required>
+            <input type="text" class="form-control" id="validationCustom01" placeholder="회원명" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -20,9 +20,9 @@
         <div class="col-md-3">
             <label for="validationCustom04" class="form-label">주문 상태</label>
             <select class="form-select" id="validationCustom04" required>
-                <option selected disabled>Choose...</option>
-                <option>주문</option>
-                <option>취소</option>
+                <option selected disabled>상태</option>
+                <option value="ORDER">주문</option>
+                <option value="CANCEL">취소</option>
             </select>
             <div class="invalid-feedback">
                 Please select a valid state.
@@ -31,7 +31,7 @@
         <div class="col-md-3">
             <button type="button" id="search" class="mt-4 btn btn-outline-secondary">검색</button>
         </div>
-    </form>
+<!--    </form>-->
     <div>
         <table class="table table-striped">
             <thead>

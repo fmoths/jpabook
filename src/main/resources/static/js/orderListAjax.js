@@ -2,6 +2,7 @@ var main = {
     init : function () {
         var _this = this;
         $('#search').on('click', function () {
+            console.log("test");
             _this.save();
         });
     },
@@ -13,27 +14,26 @@ var main = {
         var memberVal = member.val();
         var statusVal = status.val();
 
-        var data = {
-            memberName: memberVal,
-            orderStatus: statusVal
-        };
+        console.log(memberVal);
+        console.log(statusVal);
+
+        var data = {memberName: member.val(),orderStatus: status.val()};
 
         // AJAX통신 : POST
         $.ajax({
             type : "post",
             url : "/orders",
-            headers : {
-                "Content-type" : "application/json charset=utf-8"
-            },
-            dataType : "text",
-            data : JSON.stringify(data),
+//            contentType: "application/json; charset=utf-8",
+            dataType : "json",
+            data : data,
             success : function (data) {
-                printData(data);
-            }
-        }).done(function() {
-            location.reload();
-        }).fail(function (error) {
-            alert(error);
+                alert(data.length);
+//                printData(data);
+            },
+            error : function (e) {
+               alert("fail");
+//                printData(data);
+           }
         });
     }
 };
