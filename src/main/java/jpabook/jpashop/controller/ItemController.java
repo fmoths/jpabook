@@ -22,7 +22,7 @@ public class ItemController {
 
     private final ItemService itemService;
 
-    @GetMapping("/items")
+    @GetMapping("/api/items")
     public String list(Model model){
         List<Item> items = itemService.findItems();
         model.addAttribute("items", items);
@@ -30,7 +30,7 @@ public class ItemController {
     }
 
     //상품 수정 폼
-    @GetMapping("/items/{itemId}/edit")
+    @GetMapping("/api/items/{itemId}/edit")
     public String updateItemForm(@PathVariable("itemId") Long itemId, Model model) {
         Item item = itemService.findById(itemId);
         model.addAttribute("item", item);
@@ -40,7 +40,7 @@ public class ItemController {
     //상품 수정
     //TODO:: 상품 업데이트 기능 엔티티에 추가해야 함.
     //TODO:: pagination 기능 추가 및 인덱스 추가.
-    @PatchMapping("/items/{itemId}")
+    @PatchMapping("/api/items/{itemId}")
     public String updateBook (
             @PathVariable("itemId") Long itemId,
             @ModelAttribute ItemDto.ItemUpdateRequest request
@@ -50,14 +50,14 @@ public class ItemController {
         return "redirect:/items";
     }
 
-    @PostMapping("/item")
+    @PostMapping("/api/item")
     public String createBook(@ModelAttribute ItemDto.ItemCreateRequest request) {
         Item item = ItemFactory.of(request);
         itemService.save(item);
         return "redirect:/items";
     }
 
-    @GetMapping("/form")
+    @GetMapping("/api/form")
     public String createItemForm() {
         return "items/createItemForm";
     }

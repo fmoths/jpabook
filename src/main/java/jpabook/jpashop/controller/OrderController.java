@@ -38,7 +38,7 @@ public class OrderController {
     private final OrderFacade orderFacade;
 
     //상품주문 화면출력
-    @GetMapping("/order")
+    @GetMapping("/api/order")
     public String createForm(Model model){
 
         List<Member> members = memberService.findMembers();
@@ -50,7 +50,7 @@ public class OrderController {
     }
 
     //상품 주문
-    @PostMapping("/order")
+    @PostMapping("/api/order")
     public String order(@RequestParam("memberId") Long memberId,
                         @RequestParam("itemId") Long itemId,
                         @RequestParam("count") int count,
@@ -62,14 +62,14 @@ public class OrderController {
 
     //주문 내역 리스트
     //TODO::세션 추가해야 함. + URI 정리
-    @GetMapping("/orders")
+    @GetMapping("/api/orders")
     public String getOrdersForm(){
         return "order/orderList";
     }
 
     //주문 내역 검색
     //TODO:: commonResponse 생성해야 함.
-    @PostMapping("/orders")
+    @PostMapping("/api/orders")
     public @ResponseBody String getOrders(
             @RequestParam(value = "memberName") String memberName,
             @RequestParam(value = "orderStatus") String orderStatus

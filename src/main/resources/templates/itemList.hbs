@@ -12,27 +12,27 @@
         <div>
             <table class="table table-striped">
                 <thead>
-                <tr>
-                    <th>id</th>
-                    <th>상품명</th>
-                    <th>가격</th>
-                    <th>재고수량</th>
-                </tr>
+                    <tr>
+                        <th>id</th>
+                        <th>상품명</th>
+                        <th>가격</th>
+                        <th>재고수량</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    {{#each items}}
-                        <form method="get" action="/items/{{id}}/edit">
-                            <tr>
-                                <td>{{id}}</td>
-                                <td>{{name}}</td>
-                                <td>{{price}}</td>
-                                <td>{{stockQuantity}}</td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary">수정</button>
-                                </td>
-                            </tr>
-                        </form>
-                    {{/each}}
+                {{#each items}}
+                    <form method="get" action="/items/{{id}}/edit">
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{name}}</td>
+                            <td>{{price}}</td>
+                            <td>{{stockQuantity}}</td>
+                            <td>
+                                <button type="submit" class="btn btn-primary">수정</button>
+                            </td>
+                        </tr>
+                    </form>
+                {{/each}}
                 </tbody>
             </table>
         </div>

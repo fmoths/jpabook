@@ -28,22 +28,36 @@ var main = {
             data : data,
             success : function (data) {
                 alert(data.length);
-//                printData(data);
+                printData(data);
             },
             error : function (e) {
                alert("fail");
-//                printData(data);
            }
         });
     }
 };
 
-main.init();
+$(document).ready( function() { main.init(); });
 
+//TODO::handlebars -> data_binding...!!
 //var source = $("#template").html();
 //var templateMissions = Handlebars.compile(source);
+
+function printData(datas) {
+            console.log(datas);
+
+            var commentTemplate = $("#commentTemplate").html();
+            console.log(commentTemplate);
+            var commentBindTemplate = Handlebars.compile(commentTemplate);
+
+            var resultHtml = '';
+            resultHtml += commentBindTemplate(datas);
+            console.log(resultHtml);
+
+            var commentUl = $("#commentUl");
+            commentUl.html(resultHtml);
+            $('body').append(commentUl);
 //
-//function printData(datas){
 //    for (var i = 0; i < datas.length; i++) {
 //        var data = datas[i];
 //        var dataStamp = {
@@ -54,7 +68,7 @@ main.init();
 //        var template = template(dataStamp)
 //        $('.append-here').append(template);
 //    }
-//}
+}
 
 //// 1000번째 게시글
 //var articleNo = 1000;

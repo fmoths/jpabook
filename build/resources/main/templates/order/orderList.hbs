@@ -45,28 +45,21 @@
                 <th>일시</th>
             </tr>
             </thead>
-            <tbody>
-            {{#each orderItems}}
-                <tr>
-                    <td>{{id}}</td>
-                    <td>{{member.name}}</td>
-                    <td>{{item.name}}</td>
-                    <td>{{price}}</td>
-                    <td>{{count}}</td>
-                    <td>{{status}}</td>
-                    <td>{{orderDate}}</td>
-                    <td>
-                        <a href="/items/{{id}}/edit" class="btn btn-primary" role="button">수정</a>
-                    </td>
-                </tr>
-            {{/each}}
+            <tbody id="commentUl">
             </tbody>
         </table>
     </div>
 </div>
-<script src="/js/lib/jquery.min.js"></script>
-<script src="/js/lib/bootstrap.min.js"></script>
-<script src="/js/lib/bootstrap.bundle.js"></script>
-<script src="/js/orderListAjax.js"></script>
+<script id="commentTemplate" type="text/x-handlebars-template">
+    {{#each orderItems}}
+        <h2>hi~</h2>
+    {{/each}}
+</script>
+<script type="text/javascript" src="/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/lib/bootstrap.bundle.js"></script>
+<script type="text/javascript" src="/js/orderListAjax.js"></script>
+<script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+<!--<script type="text/javascript" src="/js/lib/handlebars.min-v4.7.6.js"></script>-->
 </body>
 </html>
