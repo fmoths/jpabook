@@ -22,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.springframework.test.util.AssertionErrors.assertEquals;
 
@@ -56,10 +57,12 @@ class OrderServiceTest {
         Order actual = orderRepository.findById(expected.getId())
                 .get();
 
-        assertEquals("상품 주문시 상태는 ORDER", OrderStatus.ORDER, actual.getStatus());
-        assertEquals("주문한 상품 종류 수가 정확해야 한다.", 1, actual.getOrderItems().size());
-        assertEquals("주문 가격은 가격 * 수량이다.", 10000 * 2, actual.getTotalPrice());
-        assertEquals("주문 수량만큼 재고가 줄어야한다.", 8, item.getStockQuantity());
+        assertAll( "상품 주문 저장 테스트 ",
+            () -> assertEquals("상품 주문시 상태는 ORDER", OrderStatus.ORDER, actual.getStatus()),
+            () -> assertEquals("주문한 상품 종류 수가 정확해야 한다.", 1, actual.getOrderItems().size()),
+            () -> assertEquals("주문 가격은 가격 * 수량이다.", 10000 * 2, actual.getTotalPrice()),
+            () -> assertEquals("주문 수량만큼 재고가 줄어야한다.", 8, item.getStockQuantity())
+        );
     }
 
     @Test
