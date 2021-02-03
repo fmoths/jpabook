@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.3.4.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'com.moowork.node' version '1.3.1'
     id 'java'
 }
 
@@ -16,6 +17,14 @@ configurations {
 
 repositories {
     mavenCentral()
+}
+
+node {
+    version = '15.7.0'
+    npmVersion = '7.4.3'
+    workDir = file("./vue-frontend")
+    npmWorkDir = file("./vue-frontend")
+    nodeModulesDir = file("./vue-frontend")
 }
 
 dependencies {
@@ -35,6 +44,20 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
 }
+
+task setUp(type: NpmTask){
+    description = "Install Node.js packages"
+    args = ["install"]
+    inputs.files file('package.json')
+    outputs.files file('node_modules')
+}
+
+task buildFrontEnd(type: NpmTask , dependsOn: setUp){
+    description = "Build vue.js"
+    args = ["run", "build"]
+}
+
+processResources.dependsOn 'buildFrontEnd'
 
 test {
     useJUnitPlatform()

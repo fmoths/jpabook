@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - MemberServiceTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>MemberServiceTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/jpabook.jpashop.domain.member.service.html">jpabook.jpashop.domain.member.service</a> &gt; MemberServiceTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.077s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">회원가입을 신청하면 유저의 데이터가 저장된다.</td>
+<td class="success">join()</td>
+<td class="success">0.053s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">중복회원이 저장되면 예외를 발생시킨다.</td>
+<td class="success">saveMemberFail()</td>
+<td class="success">0.024s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2021-02-03 22:04:32.868  INFO 4928 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [jpabook.jpashop.domain.member.service.MemberServiceTest], using SpringBootContextLoader
+2021-02-03 22:04:32.873  INFO 4928 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [jpabook.jpashop.domain.member.service.MemberServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-02-03 22:04:32.887  INFO 4928 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-02-03 22:04:32.888  INFO 4928 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1761f85f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@9535784, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1c5daf48, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4ac86a15, org.springframework.test.context.support.DirtiesContextTestExecutionListener@52f3c013, org.springframework.test.context.transaction.TransactionalTestExecutionListener@410f42be, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@30d99238, org.springframework.test.context.event.EventPublishingTestExecutionListener@3948cef4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@75f76296, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4e56c424, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@32e2c784, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4da29042, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@38fa8b2, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7b802b03]
+2021-02-03 22:04:32.905  INFO 4928 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@603b63d testClass = MemberServiceTest, testInstance = jpabook.jpashop.domain.member.service.MemberServiceTest@78375477, testMethod = join@MemberServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@215b041 testClass = MemberServiceTest, locations = '{}', classes = '{class jpabook.JpaBookApplication, class jpabook.JpaBookApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f602779, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6ca9bac0, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6ecf4c2f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@3b07c9ef, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@29846ba0]; rollback [true]
+2021-02-03 22:04:32.953  INFO 4928 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@603b63d testClass = MemberServiceTest, testInstance = jpabook.jpashop.domain.member.service.MemberServiceTest@78375477, testMethod = join@MemberServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@215b041 testClass = MemberServiceTest, locations = '{}', classes = '{class jpabook.JpaBookApplication, class jpabook.JpaBookApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f602779, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6ca9bac0, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6ecf4c2f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@3b07c9ef, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]
+2021-02-03 22:04:32.961  INFO 4928 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@603b63d testClass = MemberServiceTest, testInstance = jpabook.jpashop.domain.member.service.MemberServiceTest@13e014a9, testMethod = saveMemberFail@MemberServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@215b041 testClass = MemberServiceTest, locations = '{}', classes = '{class jpabook.JpaBookApplication, class jpabook.JpaBookApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f602779, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6ca9bac0, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6ecf4c2f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@3b07c9ef, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@29846ba0]; rollback [true]
+2021-02-03 22:04:32.979  INFO 4928 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@603b63d testClass = MemberServiceTest, testInstance = jpabook.jpashop.domain.member.service.MemberServiceTest@13e014a9, testMethod = saveMemberFail@MemberServiceTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@215b041 testClass = MemberServiceTest, locations = '{}', classes = '{class jpabook.JpaBookApplication, class jpabook.JpaBookApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f602779, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6ca9bac0, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6ecf4c2f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@3b07c9ef, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.3</a> at 2021. 2. 3. 오후 10:04:41</p>
+</div>
+</div>
+</body>
+</html>

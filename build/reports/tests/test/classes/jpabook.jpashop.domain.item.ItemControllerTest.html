@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - ItemControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>ItemControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/jpabook.jpashop.domain.item.html">jpabook.jpashop.domain.item</a> &gt; ItemControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">1</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.225s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="accessToItemListPage()"></a>
+<h3 class="failures">/items로 접속하면 상품리스트를 보여준다.</h3>
+<span class="code">
+<pre>java.lang.AssertionError: 
+Expecting:
+ &lt;&quot;{&quot;timestamp&quot;:&quot;2021-02-03T13:04:40.752+00:00&quot;,&quot;status&quot;:404,&quot;error&quot;:&quot;Not Found&quot;,&quot;message&quot;:&quot;&quot;,&quot;path&quot;:&quot;/items&quot;}&quot;&gt;
+to contain:
+ &lt;&quot;&lt;title&gt;상품 리스트&lt;/title&gt;&quot;&gt; 
+	at jpabook.jpashop.domain.item.ItemControllerTest.accessToItemListPage(ItemControllerTest.java:26)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:686)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:170)
+	at org.junit.jupiter.engine.execution.ThrowableCollector.execute(ThrowableCollector.java:40)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:166)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:113)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:58)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:220)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:188)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:202)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:181)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:132)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:412)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">/items로 접속하면 상품리스트를 보여준다.</td>
+<td class="failures">accessToItemListPage()</td>
+<td class="failures">0.225s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2021-02-03 22:04:32.987  INFO 4928 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [jpabook.jpashop.domain.item.ItemControllerTest], using SpringBootContextLoader
+2021-02-03 22:04:32.989  INFO 4928 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [jpabook.jpashop.domain.item.ItemControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-02-03 22:04:32.991  INFO 4928 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [jpabook.jpashop.domain.item.ItemControllerTest]: ItemControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-02-03 22:04:33.032  INFO 4928 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration jpabook.JpaBookApplication for test class jpabook.jpashop.domain.item.ItemControllerTest
+2021-02-03 22:04:33.036  INFO 4928 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-02-03 22:04:33.036  INFO 4928 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2e2f7acc, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@15c29deb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1ba17cbb, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1d9eca30, org.springframework.test.context.support.DirtiesContextTestExecutionListener@48322a55, org.springframework.test.context.transaction.TransactionalTestExecutionListener@499ecb7d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@59ca3251, org.springframework.test.context.event.EventPublishingTestExecutionListener@32eeac12, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6b574898, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@54adb3ac, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5c7d4bd2, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1bb4f273, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4af66a15, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@737f8034]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.4.RELEASE)
+
+2021-02-03 22:04:38.116  INFO 4928 --- [    Test worker] j.j.domain.item.ItemControllerTest       : Starting ItemControllerTest on baggyeongdeog-ui-MacBookAir.local with PID 4928 (started by kdpark in /Users/kdpark/IdeaProjects/jpabook)
+2021-02-03 22:04:38.117  INFO 4928 --- [    Test worker] j.j.domain.item.ItemControllerTest       : No active profile set, falling back to default profiles: default
+2021-02-03 22:04:38.600  INFO 4928 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-02-03 22:04:38.676  INFO 4928 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67ms. Found 3 JPA repository interfaces.
+2021-02-03 22:04:38.884  INFO 4928 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsHelpersAutoConfiguration' of type [pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsHelpersAutoConfiguration$$EnhancerBySpringCGLIB$$cdd0c90b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-03 22:04:38.926  INFO 4928 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'handlebars.resolver-pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsValueResolversProperties' of type [pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsValueResolversProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-03 22:04:38.932  INFO 4928 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'handlebars-pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsProperties' of type [pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-03 22:04:38.933  INFO 4928 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsAutoConfiguration$HandlebarsViewResolverConfiguration' of type [pl.allegro.tech.boot.autoconfigure.handlebars.HandlebarsAutoConfiguration$HandlebarsViewResolverConfiguration$$EnhancerBySpringCGLIB$$e0b7f3a9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-03 22:04:38.947  INFO 4928 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'handlebarsViewResolver' of type [com.github.jknack.handlebars.springmvc.HandlebarsViewResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-03 22:04:39.142  INFO 4928 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2021-02-03 22:04:39.153  INFO 4928 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-03 22:04:39.153  INFO 4928 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2021-02-03 22:04:39.331  INFO 4928 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-02-03 22:04:39.333  INFO 4928 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1212 ms
+2021-02-03 22:04:39.447  INFO 4928 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : pool-jiniworld - Starting...
+2021-02-03 22:04:39.455  INFO 4928 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : pool-jiniworld - Start completed.
+2021-02-03 22:04:39.455  INFO 4928 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2021-02-03 22:04:39.608  INFO 4928 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-03 22:04:39.633  INFO 4928 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-03 22:04:39.654  INFO 4928 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-02-03 22:04:39.732  WARN 4928 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-03 22:04:40.050  INFO 4928 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-02-03 22:04:40.062  INFO 4928 --- [         task-1] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@585665b6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-02-03 22:04:40.107  INFO 4928 --- [         task-1] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51453cd4] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-02-03 22:04:40.171  INFO 4928 --- [         task-1] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'file:/Users/kdpark/IdeaProjects/jpabook/build/resources/main/import.sql'
+2021-02-03 22:04:40.185  INFO 4928 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-03 22:04:40.190  INFO 4928 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-02-03 22:04:40.449  INFO 4928 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 58870 (http) with context path ''
+2021-02-03 22:04:40.453  INFO 4928 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-02-03 22:04:40.590  INFO 4928 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-02-03 22:04:40.597  INFO 4928 --- [    Test worker] j.j.domain.item.ItemControllerTest       : Started ItemControllerTest in 7.558 seconds (JVM running for 21.199)
+2021-02-03 22:04:40.708  INFO 4928 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-03 22:04:40.708  INFO 4928 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-02-03 22:04:40.728  INFO 4928 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 20 ms
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.3</a> at 2021. 2. 3. 오후 10:04:41</p>
+</div>
+</div>
+</body>
+</html>
